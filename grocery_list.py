@@ -24,11 +24,26 @@ for item in prices and stock:
 #your personal shopping list
 shopping_list = ["banana", "orange", "apple"]
 
-#function which calculates total price for the items in your list
+
 def compute_bill(food):
+    '''function which calculates total price for the items in your list
+    it doesnt count how many items you have'''
     total=0
     for item in food:
         total=total+prices[item]
     return total
 
+#result
 print compute_bill(shopping_list)
+
+def compute_bill2(food):
+    '''function which calculates total price for the items in your list
+    it COUNTS how many items you have in the stock'''
+    total=0
+    for item in food:
+        if stock[item]>0:
+            stock[item]=stock[item]-1
+            total=total+prices[item]
+    return total
+
+print compute_bill2(shopping_list)
